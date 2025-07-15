@@ -1,0 +1,46 @@
+.floating-input-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+  
+  .floating-input {
+    width: 100%;
+    padding: 0.8rem 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: transparent;
+    color: black;
+    outline: none;
+  
+    /* 💫 Smooth border & shadow transitions */
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  
+  .floating-input:focus {
+    border-color: #00bfff;
+    box-shadow: 0 0 6px rgba(0, 191, 255, 0.4); /* 💡 glow effect */
+  }
+  
+  .floating-label {
+    position: absolute;
+    left: 0.6rem;
+    top: 0.85rem;
+    color: #aaa;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: 0.2s ease all;
+  }
+  
+  /* Label floats up when input has value or is focused */
+  .floating-input:focus + .floating-label,
+  .floating-input.has-value + .floating-label {
+    top: -0.6rem;
+    left: 0.5rem;
+    font-size: 0.75rem;
+    color: #00bfff;
+    background-color: rgba(255, 255, 255, 0.9); /* 👈 match your background if dark */
+    padding: 0 0.25rem;
+    border-radius: 4px;
+  }

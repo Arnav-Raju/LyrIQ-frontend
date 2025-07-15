@@ -1,38 +1,203 @@
-.App {
+.app-container {
+  font-family: 'Segoe UI', sans-serif;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
   text-align: center;
+  color: #222;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search-form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.search-form input,
+.search-form button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.search-form button {
+  background-color: #ff9800;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.lyrics-box {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.lyric-line {
+  margin: 4px 0;
+  font-family: monospace;
+}
+
+.explanation-box {
+  background-color: rgba(255, 255, 255, 0.1);
+  /* border-left: 5px solid rgba(255, 255, 255, 0.1); */
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 8px;
+}
+
+.explanation-html h1,
+.explanation-html h2,
+.explanation-html h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+.explanation-html p {
+  margin: 0.5rem 0;
+  line-height: 1.6;
+}
+
+.explanation-html ul,
+.explanation-html ol {
+  margin-left: 20px;
+}
+
+.explanation-html strong {
+  font-weight: bold;
+}
+
+.bebas {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  font-size: 2.5rem; /* adjust as needed */
+  text-transform: uppercase;
+}
+
+/* App.css */
+.app-loader {
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top: 3px solid #00bfff;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.bebas {
+  color: var(--accent-color);
+}
+
+.app-title {
+  font-size: 3rem;
+  font-weight: bold;
+  
+  background: linear-gradient(90deg, var(--dominant-color, #00bfff), #ffffff);
+  background-clip: text; /* ✅ Standard property */
+  -webkit-background-clip: text; /* ✅ For WebKit (Chrome, Safari) */
+  color: transparent;
+  -webkit-text-fill-color: transparent; /* Required for WebKit */
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.15); /* Optional: glow */
+  transition: all 0.3s ease;
+  animation: shimmer 3s infinite alternate;
+}
+
+.app-title:hover {
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.4),
+    0 0 8px rgba(255, 255, 255, 0.3),
+    0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes shimmer {
+  0% {
+    text-shadow:
+      0 0 2px rgba(255, 255, 255, 0.1),
+      0 0 3px rgba(255, 255, 255, 0.05);
+  }
+  100% {
+    text-shadow:
+      0 0 5px rgba(255, 255, 255, 0.3),
+      0 0 10px rgba(255, 255, 255, 0.2),
+      0 0 15px rgba(255, 255, 255, 0.1);
+  }
+}
+
+.emotion-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 999;
 }
 
-.App-link {
-  color: #61dafb;
+.emotion-modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  min-width: 300px;
+  max-width: 400px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-@keyframes App-logo-spin {
+.summary-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  margin-top: 2rem;
+  color: #111;
+}
+
+.summary-card .artwork {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.emotion-bar {
+  margin-top: 1rem;
+}
+
+.emotion-fill {
+  height: 10px;
+  border-radius: 5px;
+  transition: width 0.5s;
+  margin-top: 4px;
+}
+
+@keyframes progressFill {
   from {
-    transform: rotate(0deg);
+    background-size: 0% 100%;
   }
   to {
-    transform: rotate(360deg);
+    background-size: 100% 100%;
   }
+}
+
+.loading-button {
+  background-image: linear-gradient(to right, #00bfff, #00bfff);
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  animation: progressFill 25s linear forwards;
 }

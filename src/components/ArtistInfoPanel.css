@@ -1,0 +1,76 @@
+.artist-info-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 18, 25, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .artist-info-content {
+    background: #ffffff;
+    color: #111;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  }
+  
+  .close-button {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .album-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .album-info img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+  }
+  
+  .top-songs-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .top-songs-list li {
+    margin-bottom: 10px;
+  }
+  
+  .preview-audio {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  .artist-gallery-scroll {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-top: 0.5rem;
+  }
+  
+  .artist-gallery-scroll img {
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  
