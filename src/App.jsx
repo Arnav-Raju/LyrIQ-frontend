@@ -48,7 +48,7 @@ function App() {
     
 
     try {
-      const res = await fetch('http://localhost:8000/explain', {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/explain`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title, artist })
