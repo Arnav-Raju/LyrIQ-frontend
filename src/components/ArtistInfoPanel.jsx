@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import './ArtistInfoPanel.css';
 
+
 const ArtistInfoPanel = ({ artistName, onClose }) => {
   const [artistInfo, setArtistInfo] = useState(null);
   const [loading, setLoading] = useState(true);
+  const BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000';
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:8000/artist-info?artist_name=${encodeURIComponent(artistName)}`)
+    fetch(`${BASE_URL}/artist-info?artist_name=${encodeURIComponent(artistName)}`)
       .then(res => res.json())
       .then(data => {
         setArtistInfo(data);
