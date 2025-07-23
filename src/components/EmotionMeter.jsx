@@ -31,9 +31,10 @@ const EmotionMeter = ({ selectedText, darkMode, onEmotionResult }) => {
       if (!selectedText) return;
       setLoading(true);
       try {
-        const res = await axios.post('http://localhost:8000/emotion-meter', {
+        const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/emotion-meter`, {
           lyrics: selectedText
         });
+        
         const emotionData = JSON.parse(res.data.emotions); // ensure stringified JSON
         setEmotions(emotionData);
         setExpanded(true);
