@@ -27,7 +27,7 @@ const ChordsGenerator = ({ title, artist, lyrics }) => {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('http://localhost:8000/generate-chords', {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/generate-chords`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title, artist, lyrics })
